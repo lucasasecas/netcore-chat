@@ -1,18 +1,22 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NetcoreChat.Dtos;
+using NetcoreChat.Extensions;
 using NetcoreChat.Services;
+using System.Threading.Tasks;
 
 namespace NetcoreChat.Controllers
 {
     [Produces("application/json")]
     [Route("api/[Controller]")]
-    public class RoomsController : Controller
+    public class ChannelsController : Controller
     {
         private readonly IRoomService _roomService;
+        private readonly IChannelService _channelService;
 
-        public RoomsController(IRoomService roomService)
+        public ChannelsController(IRoomService roomService, IChannelService channelService)
         {
             _roomService = roomService;
+            _channelService = channelService;
         }
 
         [HttpGet]
@@ -32,6 +36,17 @@ namespace NetcoreChat.Controllers
             return Ok(room);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody] ChannelDto channel)
+        {
+            var newChannel = await _channelService.CreateAsync(channel.ToModel());
+
+            if (newChannel == null)
+                return BadRequest("Unable to create new channel");
+
+            return Ok(newChannel.ToDto());
+        }
+
         [HttpGet("{id}/messages")]
         public IActionResult GetMessages(int id)
         {
@@ -42,7 +57,6 @@ namespace NetcoreChat.Controllers
 
             return Ok(room.Messages);
         }
-
 
         [HttpPost("{id}/messages")]
         public IActionResult AddMessages(int id, [FromBody] MessageDto message)
