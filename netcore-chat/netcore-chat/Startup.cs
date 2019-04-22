@@ -26,6 +26,7 @@ namespace NetcoreChat
                         .WithOrigins("http://localhost:8080")));
 
             services.AddTransient<UserService>();
+            services.AddTransient<IChannelService, ChannelService>();
 
             services.AddSignalR();
             services.AddMvc();
