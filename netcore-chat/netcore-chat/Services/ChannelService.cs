@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using MongoDB.Driver;
 using NetcoreChat.Models;
@@ -12,7 +13,7 @@ namespace NetcoreChat.Services
         public ChannelService(IConfiguration configuration)
         {
             var client = new MongoClient(configuration.GetConnectionString("ChatDb"));
-            var database = client.GetDatabase("BookstoreDb");
+            var database = client.GetDatabase("ChatDb");
             _channels = database.GetCollection<Channel>("Channels");
         }
 

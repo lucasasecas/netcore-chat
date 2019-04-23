@@ -37,7 +37,7 @@ namespace NetcoreChat.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromQuery] ChannelDto channel)
+        public async Task<IActionResult> Post([FromBody] ChannelDto channel)
         {
             var newChannel = await _channelService.CreateAsync(channel.ToModel());
 

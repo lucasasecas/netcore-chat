@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
+    <UserSecretsId>5813b1b8-1c60-4766-8195-6ffda493d9a9</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -9,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.2.4" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.2.1" />
     <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.1.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
     <PackageReference Include="MongoDB.Driver" Version="2.8.0" />
