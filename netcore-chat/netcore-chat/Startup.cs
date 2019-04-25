@@ -2,7 +2,10 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using NetcoreChat.Domain.Entities;
 using NetcoreChat.Hubs;
+using NetcoreChat.Infrastructure.Data;
+using NetcoreChat.Infrastructure.Data.Repositories;
 using NetcoreChat.Services;
 
 namespace NetcoreChat
@@ -25,6 +28,7 @@ namespace NetcoreChat
                         .AllowAnyMethod()
                         .WithOrigins("http://localhost:8080")));
 
+            AddRepositories(services);
             services.AddTransient<UserService>();
             services.AddTransient<IChannelService, ChannelService>();
 
@@ -56,6 +60,12 @@ namespace NetcoreChat
             });
 
             app.UseMvc();
+        }
+
+        private void AddRepositories(IServiceCollection services)
+        {
+            services.AddTransient<ChatDbContext>();
+            services.AddTransient<IRepository<Channel>, ChannelRepository>();
         }
     }
 }

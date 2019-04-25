@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Moq;
 using NetcoreChat.Controllers;
-using NetcoreChat.Models;
+using NetcoreChat.Domain.Entities;
 using NetcoreChat.Services;
 using System.Threading.Tasks;
 using Xunit;

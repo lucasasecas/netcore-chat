@@ -1,12 +1,15 @@
-﻿namespace NetcoreChat.Domain.Entities
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+
+namespace NetcoreChat.Domain.Entities
 {
     public class Channel
     {
-        //[BsonId]
-        //[BsonRepresentation(BsonType.ObjectId)]
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
 
-        //[BsonElement("Name")]
+        [BsonElement("Name")]
         public string Name { get; set; }
     }
 }

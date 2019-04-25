@@ -1,4 +1,4 @@
-﻿using NetcoreChat.Models;
+﻿using NetcoreChat.Domain.Entities;
 using System.Threading.Tasks;
 
 namespace NetcoreChat.Services

@@ -3,12 +3,12 @@ using System.Threading.Tasks;
 
 namespace NetcoreChat.Infrastructure.Data.Repositories
 {
-    public interface IRepository<TElement, TId> 
+    public interface IRepository<TElement> 
     {
-        Task<ICollection<TElement>> GetAll();
-        Task<TElement> GetById(TId id);
-        Task<TElement> Create(TElement element);
-        Task<TElement> Update(TId id, TElement element);
-        Task Delete(TId id);
+        Task<ICollection<TElement>> GetAllAsync();
+        Task<TElement> GetByIdAsync(string id);
+        Task<TElement> CreateAsync(TElement element);
+        Task<bool> UpdateAsync(string id, TElement element);
+        Task<bool> DeleteAsync(string id);
     }
 }

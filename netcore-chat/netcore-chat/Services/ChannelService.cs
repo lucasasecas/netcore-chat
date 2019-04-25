@@ -1,27 +1,21 @@
-﻿using System;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
-using MongoDB.Driver;
-using NetcoreChat.Models;
+﻿using System.Threading.Tasks;
+using NetcoreChat.Domain.Entities;
+using NetcoreChat.Infrastructure.Data.Repositories;
 
 namespace NetcoreChat.Services
 {
     public class ChannelService : IChannelService
     {
-        private readonly IMongoCollection<Channel> _channels;
+        private readonly IRepository<Channel> _channelRepository;
 
-        public ChannelService(IConfiguration configuration)
+        public ChannelService(IRepository<Channel> channelRepository)
         {
-            var client = new MongoClient(configuration.GetConnectionString("ChatDb"));
-            var database = client.GetDatabase("ChatDb");
-            _channels = database.GetCollection<Channel>("Channels");
+            _channelRepository = channelRepository;
         }
 
         public async Task<Channel> CreateAsync(Channel channel)
         {
-            await _channels.InsertOneAsync(channel);
-
-            return channel;
+            return await _channelRepository.CreateAsync(channel);
         }
     }
 }

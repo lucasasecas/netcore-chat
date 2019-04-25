@@ -1,5 +1,5 @@
-﻿using NetcoreChat.Dtos;
-using NetcoreChat.Models;
+﻿using NetcoreChat.Domain.Entities;
+using NetcoreChat.Dtos;
 
 namespace NetcoreChat.Extensions
 {

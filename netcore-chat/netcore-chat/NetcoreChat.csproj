@@ -20,4 +20,9 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\NetcoreChat.Domain.Entities\NetcoreChat.Domain.Entities.csproj" />
+    <ProjectReference Include="..\NetcoreChat.Infrastructure.Data\NetcoreChat.Infrastructure.Data.csproj" />
+  </ItemGroup>
+
 </Project>
