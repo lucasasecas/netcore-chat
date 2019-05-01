@@ -9,7 +9,11 @@ namespace NetcoreChat.Extensions
         {
             return new Channel
             {
-                Name = channel.Name
+                Name = channel.Name,
+                Location = new Location
+                {
+                    Coordinates = new double[] { channel.Location.Longitude, channel.Location.Latitude }
+                }
             };
         }
 
@@ -18,7 +22,13 @@ namespace NetcoreChat.Extensions
             return new ChannelDto
             {
                 Id = channel.Id,
-                Name = channel.Name
+                Name = channel.Name,
+                Location = channel.Location == null ? null
+                : new LocationDto
+                {
+                    Longitude = channel.Location.Coordinates[0],
+                    Latitude = channel.Location.Coordinates[1]
+                }
             };
         }
     }

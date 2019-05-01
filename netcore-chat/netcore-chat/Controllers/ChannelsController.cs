@@ -20,9 +20,9 @@ namespace NetcoreChat.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get([FromQuery] string name)
+        public IActionResult Get([FromQuery] double[] position)
         {
-            return Ok(_roomService.GetAll(name));
+            return Ok(_channelService.GetNearbyChannels(position));
         }
 
         [HttpGet("{id}")]

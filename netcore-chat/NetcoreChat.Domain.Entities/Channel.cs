@@ -11,5 +11,8 @@ namespace NetcoreChat.Domain.Entities
 
         [BsonElement("Name")]
         public string Name { get; set; }
+
+        [BsonElement("Location")]
+        public Location Location { get; set; }
     }
 }

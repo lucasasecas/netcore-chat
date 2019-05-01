@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace NetcoreChat.Infrastructure.Data.Repositories
 {
-    public interface IRepository<TElement> 
+    public interface IRepository<TElement> : ILocatable<TElement>
     {
         Task<ICollection<TElement>> GetAllAsync();
         Task<TElement> GetByIdAsync(string id);
