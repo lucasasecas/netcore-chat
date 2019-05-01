@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\netcore-chat\NetcoreChat.csproj" />
+    <ProjectReference Include="..\NetcoreChat.Api\NetcoreChat.Api.csproj" />
   </ItemGroup>
 
 </Project>

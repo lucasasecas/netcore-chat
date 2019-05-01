@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  netcorechat.api:
+    image: ${DOCKER_REGISTRY-}netcorechatapi
+    build:
+      context: .
+      dockerfile: NetcoreChat.Api/Dockerfile
